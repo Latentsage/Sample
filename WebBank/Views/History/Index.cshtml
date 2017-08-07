@@ -1,0 +1,26 @@
+﻿@model WebBank.Models.HistoryModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>Type</td>
+            <td>Amount</td>
+        </tr>
+    </thead>
+    @foreach (var transaction in Model.Transactions)
+    {
+        <tr>
+            <td>@(transaction < 0 ? "Withdrawal" : "Deposit")</td>
+            <td>@Math.Abs(transaction)</td>
+        </tr>
+    }
+</table>
+<div>
+    @Html.LabelFor(model => model.Balance)
+</div>
+<div>
+    @Html.DisplayFor(model => model.Balance)
+</div>

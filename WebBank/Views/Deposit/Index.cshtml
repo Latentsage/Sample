@@ -1,0 +1,21 @@
+﻿@model WebBank.Models.DepositModel
+@{
+    ViewBag.Title = "Index";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Amount)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Amount)
+            @Html.ValidationMessageFor(model => model.Amount)
+        </div>
+        <input class="btn btn-primary" type="submit" value="Submit" />
+    </fieldset>
+}
+
